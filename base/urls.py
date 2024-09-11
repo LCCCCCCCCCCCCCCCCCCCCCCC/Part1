@@ -1,8 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.urls import path
+from . import views
 
-def home(request):
-    return HttpResponse('Home Page')
-
-def room(request):
-    return HttpResponse('Room')
+urlpatterns = [
+    path('', views.home, name="home"),
+    path('room/<str:pk>/', views.room, name = "room"),
+]
